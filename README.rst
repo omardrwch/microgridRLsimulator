@@ -1,5 +1,14 @@
-Installation
-============
+Installation & examples
+=======================
+
+After cloning the repository, run  ``pip install -e .``
+
+Examples of how to use the environments can be found in the folder examples/
+
+
+
+Installation (according to orginal repository)
+==============================================
 
 Be sure you have python 3.6 installed.
 Run ``install.sh``. This creates the python environment ``mgenv`` with the necessary requirements to run the application.
