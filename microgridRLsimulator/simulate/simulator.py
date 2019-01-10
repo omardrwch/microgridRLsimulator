@@ -15,6 +15,8 @@ from microgridRLsimulator.plot import Plotter
 from microgridRLsimulator.utils import positive, negative
 
 
+
+
 class Simulator:
     def __init__(self, start_date, end_date, case, decision_horizon=1):
         """
@@ -24,10 +26,15 @@ class Simulator:
         :param decision_horizon:
         """
 
-        MICROGRID_CONFIG_FILE = "examples/data/%s.json" % case
-        MICROGRID_DATA_FILE = 'examples/data/%s_dataset.csv' % case
+        this_dir, _ = os.path.split(__file__)
+        package_dir = os.path.dirname(this_dir)
+
+        MICROGRID_CONFIG_FILE = os.path.join(package_dir, "data/%s.json" % case)
+        MICROGRID_DATA_FILE = os.path.join(package_dir, 'data/%s_dataset.csv' % case)
+
         self.RESULTS_FOLDER = "results/results_%s_%s" % (
             case, datetime.now().strftime('%Y-%m-%d_%H%M%S'))
+        self.RESULTS_FOLDER = os.path.join(package_dir, self.RESULTS_FOLDER)
         self.RESULTS_FILE = "%s/%s_out.json" % (self.RESULTS_FOLDER, case)
 
         with open(MICROGRID_CONFIG_FILE, 'rb') as jsonFile:
