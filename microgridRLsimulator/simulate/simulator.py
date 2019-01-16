@@ -222,7 +222,7 @@ class Simulator:
                        avg_rewards=learning_results)
 
         if not os.path.isdir(self.RESULTS_FOLDER):
-            os.mkdir(self.RESULTS_FOLDER)
+            os.makedirs(self.RESULTS_FOLDER)
 
         with open(self.RESULTS_FILE, 'w') as jsonFile:
             json.dump(results, jsonFile)

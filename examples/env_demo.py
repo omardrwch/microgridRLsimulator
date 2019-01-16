@@ -1,5 +1,5 @@
 import numpy as np
-from  microgridRLsimulator.gym_wrapper import MicrogridEnv
+from microgridRLsimulator.gym_wrapper import MicrogridEnv
 
 
 # Initialize environment

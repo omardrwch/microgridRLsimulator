@@ -13,3 +13,4 @@ __pycache__/
 mgenv
 results
 .idea/
+microgridRLsimulator/results

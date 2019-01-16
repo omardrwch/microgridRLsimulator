@@ -10,20 +10,26 @@ import numpy as np
 
 # env = gym.make('CartPole-v1')
 env = MicrogridEnv()
-env = DummyVecEnv([lambda: env])  # The algorithms require a vectorized environment to run
+env_dummy = DummyVecEnv([lambda: env])  # The algorithms require a vectorized environment to run
 
-model = PPO2(MlpPolicy, env, verbose=1)
+model = PPO2(MlpPolicy, env_dummy, verbose=1)
 model.learn(total_timesteps=80000)
+
 
 obs = env.reset()
 
-T = int(1e5)
-rewards_vec = np.zeros(T)
+T = 23*50
+rewards_vec = []
 for i in range(T):
     action, _states = model.predict(obs)
-    obs, rewards, dones, info = env.step(action)
-    rewards_vec[i] = rewards
+    obs, rewards, done, info = env.step(action)
+    rewards_vec.append(rewards)
+    if done:
+        obs = env.reset()
     # env.render()
+
+
+# env.simulator.store_and_plot()
 
 plt.hist(rewards_vec)
 plt.show()
