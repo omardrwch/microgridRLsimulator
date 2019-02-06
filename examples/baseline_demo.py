@@ -1,5 +1,5 @@
 import gym
-from  microgridRLsimulator.gym_wrapper import MicrogridEnv
+from microgridRLsimulator.gym_wrapper import MicrogridEnv
 
 from stable_baselines.common.policies import MlpPolicy
 from stable_baselines.common.vec_env import DummyVecEnv
@@ -29,7 +29,7 @@ for i in range(T):
     # env.render()
 
 
-# env.simulator.store_and_plot()
+env.simulator.store_and_plot()
 
 plt.hist(rewards_vec)
 plt.show()

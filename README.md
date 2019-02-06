@@ -1,3 +1,15 @@
+Main modifications with respect to original repository
+======================================================
+
+* Included setup.py file so that we can install it as a package;
+* case1.json and case1_dataset.csv were moved to the folder microgridRLsimulator/data/
+* data paths were modified in simulator.py
+    * results are now stored in microgridRLsimulator/results/
+    * .json and .csv files are read from microgridRLsimulator/data/
+* Created a class `MicrogridEnv` (microgridRLsimulator/gym_wrapper/microgrid_env) that implements `gym.Env`
+* File examples/baseline_demo.py shows how to use [baseline RL algorithms](https://github.com/hill-a/stable-baselines) with `MicrogridEnv`
+
+
 Installation & examples
 =======================
 
